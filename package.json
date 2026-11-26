@@ -1,0 +1,12 @@
+{
+  "name": "devops-pratica-a1",
+  "version": "1.0.0",
+  "description": "Projeto prático de DevOps com Git, testes automatizados e GitHub Actions",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node --test tests/unit/*.test.js",
+    "test:integration": "node --test tests/integration/*.test.js",
+    "validate": "npm run build && npm test && npm run test:integration"
+  }
+}
