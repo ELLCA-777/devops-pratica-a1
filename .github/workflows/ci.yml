@@ -2,14 +2,30 @@ name: CI - Validacao do projeto
 
 on:
   push:
-    branches: [main, develop, 'feature/**']
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+
   pull_request:
-    branches: [main, develop]
+    branches:
+      - main
+      - develop
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate:
     name: Build e testes automatizados
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Baixar codigo do repositorio
@@ -38,3 +54,4 @@ jobs:
         with:
           name: projeto-build
           path: dist/
+          retention-days: 7
