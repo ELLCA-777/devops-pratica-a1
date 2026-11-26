@@ -1,12 +1,16 @@
 {
   "name": "devops-pratica-a1",
   "version": "1.0.0",
-  "description": "Projeto prático de DevOps com Git, testes automatizados e GitHub Actions",
+  "description": "Sistema de controle de estoque desenvolvido para a prática de DevOps.",
   "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "build": "node scripts/build.js",
     "test": "node --test tests/unit/*.test.js",
     "test:integration": "node --test tests/integration/*.test.js",
     "validate": "npm run build && npm test && npm run test:integration"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
